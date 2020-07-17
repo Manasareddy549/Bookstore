@@ -12,6 +12,7 @@ import com.cap.dao.BookDaoI;
 import com.cap.dao.CategoryDaoI;
 import com.cap.entity.BookInfo;
 import com.cap.entity.CategoryInfo;
+import com.cap.exception.InvalidDetailsException;
 import com.cap.model.BookInfoDetails;
 
 @Service
@@ -66,12 +67,12 @@ public class BookCategoryService implements BookCategoryServiceI {
 	}
 
 	@Override
-	public CategoryInfo updateCategory(CategoryInfo c1) {
+	public CategoryInfo updateCategory(CategoryInfo c1) throws InvalidDetailsException {
 		return cat_dao.save(c1);
 	}
 
 	@Override
-	public BookInfo updateBook(BookInfo b1) {
+	public BookInfo updateBook(BookInfo b1) throws InvalidDetailsException{
 			return book_dao.save(b1);
 		
 	}

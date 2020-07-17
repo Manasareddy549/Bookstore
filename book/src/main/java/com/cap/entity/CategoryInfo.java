@@ -12,6 +12,12 @@ public class CategoryInfo {
 	@Column(length=50)
 	public String category_Name;
 	
+	
+	public CategoryInfo(int category_Id, String category_Name) {
+		super();
+		this.category_Id = category_Id;
+		this.category_Name = category_Name;
+	}
 	public int getCategory_Id() {
 		return category_Id;
 	}

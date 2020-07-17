@@ -7,20 +7,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.cap.entity.BookInfo;
 import com.cap.entity.CategoryInfo;
+import com.cap.exception.InvalidDetailsException;
 import com.cap.model.BookInfoDetails;
 import com.cap.service.BookCategoryServiceI;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
 public class MyController {
+	//controller level exception handling
+			@ResponseStatus(value=HttpStatus.NOT_FOUND,reason="controller account is not present")
+			@ExceptionHandler({Exception.class})
+			public void handleException()
+			{
+				
+			}
+		
 	
 	@Autowired
 	private BookCategoryServiceI book_catg_service;
@@ -56,7 +68,7 @@ public class MyController {
 		}
 		//updating category
 		@PutMapping("/update_category")
-		public String updateCategory(@RequestBody CategoryInfo c1) {
+		public String updateCategory(@RequestBody CategoryInfo c1) throws InvalidDetailsException  {
 			//String string = book_catg_service.updateCategory(c1);
 			//return string;
 			CategoryInfo cat1=book_catg_service.updateCategory(c1);
@@ -72,7 +84,7 @@ public class MyController {
 		
 		//updating Book
 				@PutMapping("/update_book")
-				public String updateBook(@RequestBody BookInfo b1) {
+				public String updateBook(@RequestBody BookInfo b1) throws InvalidDetailsException  {
 				//	String string = book_catg_service.updateBook(b1);
 					//return string;
 					BookInfo book1=book_catg_service.updateBook(b1);

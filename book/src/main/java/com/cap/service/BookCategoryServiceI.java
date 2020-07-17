@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cap.entity.BookInfo;
 import com.cap.entity.CategoryInfo;
+import com.cap.exception.InvalidDetailsException;
 import com.cap.model.BookInfoDetails;
 
 public interface BookCategoryServiceI {
@@ -16,9 +17,9 @@ public interface BookCategoryServiceI {
 
 	List<BookInfo> getBookNames();
 
-	CategoryInfo updateCategory(CategoryInfo c1);
+	CategoryInfo updateCategory(CategoryInfo c1) throws InvalidDetailsException;
 
-	BookInfo updateBook(BookInfo b1);
+	BookInfo updateBook(BookInfo b1) throws InvalidDetailsException ;
 	
 	void deleteCategory(int id);
 
