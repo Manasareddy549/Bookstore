@@ -1,8 +1,6 @@
 package com.cap;
 import static org.junit.Assert.assertEquals;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 import com.cap.dao.BookDaoI;
 import com.cap.dao.CategoryDaoI;
@@ -38,11 +31,12 @@ public class BookApplicationTests {
 	public void init() {
 		MockitoAnnotations.initMocks(this);
 	}
+	/*
 	@Test
 	public void test1()
 	{
 		RestTemplate restTemplate=new RestTemplate();
-		final String baseUrl="http://localhost:"+9111+"/update_book";
+		final String baseUrl="http://localhost:"+5555+"/update_book";
 		URI uri = null;
 		try {
 			uri = new URI(baseUrl);
@@ -60,6 +54,7 @@ public class BookApplicationTests {
 		System.out.println(result);
 		assertEquals("Updated Successfully", result.getBody());
 	}
+	*/
 	
 	@Test
 	public void testAddBook(){
